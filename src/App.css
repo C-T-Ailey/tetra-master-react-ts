@@ -1,0 +1,199 @@
+#playmat {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(25, 18, 70);
+  display: flex;
+  justify-content: space-between;
+}
+
+#cards-counter {
+  height: 100%;
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+}
+
+#cards-p2 {
+  width: 100%;
+  height: 65%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#counter {
+  width: 100%;
+  height: 35%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#battlegrid {
+  position: relative;
+  aspect-ratio: 1/1.2;
+  height: calc(100% - 2px);
+  background-color: rgba(255,255,255,0.3);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  background-color: none;
+  z-index: 2;
+  /* padding: 10px; */
+}
+
+.grid {
+position: absolute;
+z-index: 1;
+width: 48.75%;
+height: 110%;
+top: -3.8%;
+left: 26.7%;
+}
+
+#cards-p1 {
+  width: 25%;
+  height: 100%;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.grid-cell {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  /* background-color: white; */
+}
+
+.grid-cell:hover {
+  filter: brightness(0.8);
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 1/1.2;
+  border: 1px solid black;
+  width: 191px;
+  background-color: rgb(37, 29, 83);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  object-fit: fill;
+}
+
+.card-image {
+  aspect-ratio: 1/1.2;
+  /* height: 100%; */
+  width: 85%;
+  position: absolute;
+  z-index: 1;
+  object-fit: fill;
+}
+
+.card-frame {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  object-fit: fill;
+}
+
+.card:hover {
+  filter:brightness(0.8);
+  cursor: pointer;
+}
+
+.card-arrows {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1/1.2;
+  width: 95%;
+  z-index: 3;
+  /* background-color: black; */
+}
+
+.arrow-row {
+  width: 100%;
+  height: 33.3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row-top {
+  align-items: flex-start;
+}
+
+.row-middle {
+  align-items: center;
+}
+
+.row-bottom {
+  align-items: flex-end;
+}
+
+.arrow-container {
+  height: 25px;
+  width: 25px;
+  object-fit: contain;
+  /* background-color: pink; */
+}
+
+.arrow-container img {
+  height: 100%;
+  width: 100%;
+}
+.arrow {
+  height: 25px;
+  width: 25px;
+}
+
+.top .arrow-1 {
+  transform: rotate(45deg);
+}
+
+.top .arrow-2 {
+  transform: rotate(90deg);
+}
+
+.middle .arrow-0 {
+  transform: rotate(-45deg);
+}
+
+.middle .arrow-1 {
+  transform: rotate(135deg);
+}
+
+.bottom .arrow-0 {
+  transform: rotate(270deg);
+}
+
+.bottom .arrow-1 {
+  transform: rotate(225deg)
+}
+.bottom .arrow-2 {
+  transform: rotate(180deg)
+}
+
+.stats {
+  position: absolute;
+  color: rgba(235, 161, 16);
+  font-size: 24pt;
+  font-weight:900;
+  font-style: italic;
+  -webkit-text-stroke: 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* aspect-ratio: 1/1.2; */
+  width: 100%;
+  height: 90%;
+}
