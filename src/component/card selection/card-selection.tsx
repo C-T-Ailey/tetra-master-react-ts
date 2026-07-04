@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {type Dispatch, type SetStateAction} from "react";
-import { allCards, playerCollection, emptyCard } from "../../library/all-cards";
+import { allCards, emptyCard } from "../../library/all-cards";
 import CardBack from "../../assets/images/card-frames/card-back.png"
 import './card-selection.css'
 import type { Card } from "../../types/types";
@@ -16,15 +16,15 @@ export const CardSelection: React.FC<SelectionProps> = ({setPlayerHand, start}) 
     
     const library: Card[] = allCards;
 
-    const partialCollection: Card[] = playerCollection;
+    // const partialCollection: Card[] = playerCollection;
 
-    const arrangeCollection = () => {
-        const clct = [];
+    // const arrangeCollection = () => {
+    //     const clct = [];
 
-        for (let i = 0; i < playerCollection.length; i++) {
-            const selfCardArray = [];
-        }
-    }
+    //     for (let i = 0; i < playerCollection.length; i++) {
+    //         const selfCardArray = [];
+    //     }
+    // }
     
     const [collection, setCollection] = useState<Card[]>(library)
     const [hand, setHand] = useState<Card[]>([])
@@ -50,14 +50,14 @@ export const CardSelection: React.FC<SelectionProps> = ({setPlayerHand, start}) 
     }
 
 
-    const calcSrc = (index: any) => {
+    // const calcSrc = (index: any) => {
 
-        const card = library[index];
+    //     const card = library[index];
 
-        if (card.id === index+1) return true;
+    //     if (card.id === index+1) return true;
 
-        return false;
-    }
+    //     return false;
+    // }
 
     const handleSelect = (index: any) => {
         if (hand.length === 5) return;
