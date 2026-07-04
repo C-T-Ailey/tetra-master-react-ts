@@ -109,7 +109,7 @@ import Transport from "../assets/images/select-icons/transport.png"
 import Weapon from "../assets/images/select-icons/weapon.png"
 import Empty from "../assets/images/select-icons/empty.png"
 
-const cardTemplate =  {
+export const cardTemplate =  {
     id: 0,
       cardName: "",
       power: 0x0,
