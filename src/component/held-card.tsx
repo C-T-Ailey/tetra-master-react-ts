@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { type Card } from "../types/types";
 import './card.css'
 import Arrow from '../assets/images/corner-arrow.png'
@@ -17,12 +17,10 @@ export const HeldCard: React.FC<HeldCardProps> = ({ index, card, click }) => {
 
     const { cardName, cardImg, power, atkType, pDef, mDef, atkDirections } = card
 
-    const cardInfo = (card: Card) => {
-        console.log(`Card: ${card.cardName}.\nAttack power and type: ${card.power}${card.atkType}.\nPhysical def: ${card.pDef}.\nMagic def: ${card.mDef}.`)
-    };
-
     const staggeredHand = {zIndex: `${index * 10}`, top: index === 0 ? "0" : `-${index * 6}rem`, left: index === 0 ? "0" : `-${index * 1}rem`}
     const alignedHand = {zIndex: `${index * 10}`, top: index === 0 ? "0" : `-${index * 6}rem`}
+
+    console.log(staggeredHand);
 
     return (
         <div className="held-card-container" style={alignedHand}>

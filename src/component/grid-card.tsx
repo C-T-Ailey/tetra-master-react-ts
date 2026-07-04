@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { type Card } from "../types/types";
 import './grid-card.css'
 import Arrow from '../assets/images/corner-arrow.png'
 import PlayerBg from '../assets/images/card-frames/player-bg.png'
 import PlayerFrame from '../assets/images/card-frames/player-frame.png'
 import EnemyBg from '../assets/images/card-frames/enemy-bg.png'
-import EnemyFrame from '../assets/images/card-frames/enemy-frame.png'
 
 interface GridCardProps {
     card: Card,
@@ -13,7 +12,7 @@ interface GridCardProps {
 
 export const GridCard: React.FC<GridCardProps> = ({ card }) => {
 
-    const { cardName, cardImg, power, atkType, pDef, mDef, atkDirections, player } = card
+    const { cardImg, power, atkType, pDef, mDef, atkDirections, player } = card
 
     const isWall = player === "block";
 

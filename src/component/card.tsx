@@ -4,8 +4,8 @@ import Arrow from '../assets/images/corner-arrow.png'
 import PlayerBg from '../assets/images/card-frames/player-bg.png'
 import PlayerFrame from '../assets/images/card-frames/player-frame.png'
 import EnemyBg from '../assets/images/card-frames/enemy-bg.png'
-import EnemyFrame from '../assets/images/card-frames/enemy-frame.png'
-import Block1 from '../assets/images/card-frames/block-tile-1.png'
+// import EnemyFrame from '../assets/images/card-frames/enemy-frame.png'
+// import Block1 from '../assets/images/card-frames/block-tile-1.png'
 import Block2 from '../assets/images/card-frames/block-tile-2.png'
 
 interface CardTemplateProps {
@@ -22,6 +22,8 @@ export const CardTemplate: React.FC<CardTemplateProps> = ({ card, flipped=false,
 
     const {id, cardName, power, atkType, pDef, mDef, cardImg, atkDirections, player} = card;
 
+    console.log(flipped, index, click, id);
+
     const isP1 = player === "p1"
 
     const isWall = player === "block";
@@ -34,11 +36,11 @@ export const CardTemplate: React.FC<CardTemplateProps> = ({ card, flipped=false,
         else return EnemyBg;
     }
 
-    const handleTooltip = () => {
-        if (isWall) return;
+    // const handleTooltip = () => {
+    //     if (isWall) return;
 
-        setTooltipVisible(!tooltipVisible)
-    }
+    //     setTooltipVisible(!tooltipVisible)
+    // }
 
     return  (<div className="held-card-container">
     <div className='card' onMouseOver={ !isWall ? () => setTooltipVisible(true) : () => {}} onMouseOut={ !isWall ? () => setTooltipVisible(false) : () => {}}>

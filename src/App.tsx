@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { type Card, type Arrows, type CellMap } from './types/types';
+import { type Card, type CellMap } from './types/types';
 import Cactuar from './assets/images/card-sprites/tile023.png'
 import Tonberry from './assets/images/card-sprites/tile045.png'
 import Hecteyes from './assets/images/card-sprites/tile037.png'
@@ -8,14 +8,12 @@ import Goblin from './assets/images/card-sprites/tile000.png'
 import Chocobo from './assets/images/card-sprites/tile088.png'
 import BlockOne from './assets/images/card-frames/block-tile-1.png'
 import BlockTwo from './assets/images/card-frames/block-tile-2.png'
-import { HeldCard } from './component/held-card';
-import { GridCard } from './component/grid-card';
 import special from "./assets/images/select-icons/hmm.png"
 import { CardSelection } from './component/card selection/card-selection';
 import { CardTemplate } from './component/card';
 
-const rows: string[] = ["A","B","C","D"];
-const cols: string[] = ["1","2","3","4"];
+// const rows: string[] = ["A","B","C","D"];
+// const cols: string[] = ["1","2","3","4"];
 
 const WallOne: Card = {
   id: 0,
@@ -169,144 +167,144 @@ const handWithCardObjects: Card[] = [
   },
 ]
 
-const debugEnemyHand: Card[] = [
-  {
-    id: 1,
-    cardName: "Cactuar",
-    power: 0x2,
-    atkType: "P",
-    pDef: 0xB,
-    mDef: 0x1,
-    cardImg: Cactuar,
-    atkDirections: {
-      NW: false, 
-      N: false, 
-      NE: true, 
-      E: true, 
-      SE: true, 
-      S: true, 
-      SW: false, 
-      W: false
-    },
-    player: "p2",
-    icon: special
-  },
-  {
-    id: 2,
-    cardName: "Tonberry",
-    power: 0x2,
-    atkType: "X",
-    pDef: 0x3,
-    mDef: 0xA,
-    cardImg: Tonberry,
-    atkDirections: {
-      NW: true, 
-      N: false, 
-      NE: true, 
-      E: false, 
-      SE: false, 
-      S: true, 
-      SW: false, 
-      W: true
-    },
-    player: "p2",
-    icon: special
-  },
-  {
-    id: 3,
-    cardName: "Hecteyes",
-    power: 0x4,
-    atkType: "A",
-    pDef: 0x0,
-    mDef: 0x4,
-    cardImg: Hecteyes,
-    atkDirections: {
-      NW: false, 
-      N: true,
-      NE: false, 
-      E: false, 
-      SE: true, 
-      S: false, 
-      SW: true, 
-      W: false
-    },
-    player: "p2",
-    icon: special
-  },
-  {
-    id: 4,
-    cardName: "Goblin",
-    power: 0x0,
-    atkType: "P",
-    pDef: 0x0,
-    mDef: 0x0,
-    cardImg: Goblin,
-    atkDirections: {
-      NW: true, 
-      N: true,
-      NE: true, 
-      E: true, 
-      SE: true, 
-      S: true, 
-      SW: true, 
-      W: true
-    },
-    player: "p2",
-    icon: special
-  },
-  {
-    id: 5,
-    cardName: "Chocobo",
-    power: 0x1,
-    atkType: "P",
-    pDef: 0x3,
-    mDef: 0x1,
-    cardImg: Chocobo,
-    atkDirections: {
-      NW: true, 
-      N: false,
-      NE: true, 
-      E: true, 
-      SE: true, 
-      S: false, 
-      SW: true, 
-      W: false
-    },
-    player: "p2",
-    icon: special
-  },
-]
+// const debugEnemyHand: Card[] = [
+//   {
+//     id: 1,
+//     cardName: "Cactuar",
+//     power: 0x2,
+//     atkType: "P",
+//     pDef: 0xB,
+//     mDef: 0x1,
+//     cardImg: Cactuar,
+//     atkDirections: {
+//       NW: false, 
+//       N: false, 
+//       NE: true, 
+//       E: true, 
+//       SE: true, 
+//       S: true, 
+//       SW: false, 
+//       W: false
+//     },
+//     player: "p2",
+//     icon: special
+//   },
+//   {
+//     id: 2,
+//     cardName: "Tonberry",
+//     power: 0x2,
+//     atkType: "X",
+//     pDef: 0x3,
+//     mDef: 0xA,
+//     cardImg: Tonberry,
+//     atkDirections: {
+//       NW: true, 
+//       N: false, 
+//       NE: true, 
+//       E: false, 
+//       SE: false, 
+//       S: true, 
+//       SW: false, 
+//       W: true
+//     },
+//     player: "p2",
+//     icon: special
+//   },
+//   {
+//     id: 3,
+//     cardName: "Hecteyes",
+//     power: 0x4,
+//     atkType: "A",
+//     pDef: 0x0,
+//     mDef: 0x4,
+//     cardImg: Hecteyes,
+//     atkDirections: {
+//       NW: false, 
+//       N: true,
+//       NE: false, 
+//       E: false, 
+//       SE: true, 
+//       S: false, 
+//       SW: true, 
+//       W: false
+//     },
+//     player: "p2",
+//     icon: special
+//   },
+//   {
+//     id: 4,
+//     cardName: "Goblin",
+//     power: 0x0,
+//     atkType: "P",
+//     pDef: 0x0,
+//     mDef: 0x0,
+//     cardImg: Goblin,
+//     atkDirections: {
+//       NW: true, 
+//       N: true,
+//       NE: true, 
+//       E: true, 
+//       SE: true, 
+//       S: true, 
+//       SW: true, 
+//       W: true
+//     },
+//     player: "p2",
+//     icon: special
+//   },
+//   {
+//     id: 5,
+//     cardName: "Chocobo",
+//     power: 0x1,
+//     atkType: "P",
+//     pDef: 0x3,
+//     mDef: 0x1,
+//     cardImg: Chocobo,
+//     atkDirections: {
+//       NW: true, 
+//       N: false,
+//       NE: true, 
+//       E: true, 
+//       SE: true, 
+//       S: false, 
+//       SW: true, 
+//       W: false
+//     },
+//     player: "p2",
+//     icon: special
+//   },
+// ]
 
-const checkSquare = (cell: string, colBy: number, rowBy: number,) => {
-  const cellRow = cell.split("")[0];
-  const cellCol = cell.split("")[1];
-  const colIndex = cols.indexOf(cellCol);
-  const rowIndex = rows.indexOf(cellRow);
-  const foundCol = cols[colIndex + colBy];
-  const foundRow = rows[rowIndex + rowBy];
+// const checkSquare = (cell: string, colBy: number, rowBy: number,) => {
+//   const cellRow = cell.split("")[0];
+//   const cellCol = cell.split("")[1];
+//   const colIndex = cols.indexOf(cellCol);
+//   const rowIndex = rows.indexOf(cellRow);
+//   const foundCol = cols[colIndex + colBy];
+//   const foundRow = rows[rowIndex + rowBy];
   
-  if (!foundCol || !foundRow) return false;
-  else return [foundRow, foundCol].join("");
-}
+//   if (!foundCol || !foundRow) return false;
+//   else return [foundRow, foundCol].join("");
+// }
 
 // Row = Y, col = X
 
-const checkAllSquares = (cell: string) => {
-  const adjacent = {
-    NW: checkSquare(cell, -1, -1), //NW
-    N: checkSquare(cell, 0, -1), //N
-    NE: checkSquare(cell, 1, -1), //NE
-    E: checkSquare(cell, 1, 0), //E
-    SE: checkSquare(cell, 1, 1), //SE
-    S: checkSquare(cell, 0, 1), //S
-    SW: checkSquare(cell, -1, 1), //SW
-    W: checkSquare(cell, -1, 0), //W
-  };
+// const checkAllSquares = (cell: string) => {
+//   const adjacent = {
+//     NW: checkSquare(cell, -1, -1), //NW
+//     N: checkSquare(cell, 0, -1), //N
+//     NE: checkSquare(cell, 1, -1), //NE
+//     E: checkSquare(cell, 1, 0), //E
+//     SE: checkSquare(cell, 1, 1), //SE
+//     S: checkSquare(cell, 0, 1), //S
+//     SW: checkSquare(cell, -1, 1), //SW
+//     W: checkSquare(cell, -1, 0), //W
+//   };
 
-  console.log(`Cells adjacent to ${cell}:`, adjacent)
-}
+//   console.log(`Cells adjacent to ${cell}:`, adjacent)
+// }
 
-const whoseTurnIsItAnyway = () => {}
+// const whoseTurnIsItAnyway = () => {}
 
 function App() {
 
