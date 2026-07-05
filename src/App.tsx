@@ -5,6 +5,7 @@ import { CardSelection } from './component/card selection/card-selection';
 import { CardTemplate } from './component/card';
 import { WallOne, WallTwo, debugEnemyHand, handWithCardObjects } from './library/all-cards';
 import CardBack from "./assets/images/card-frames/card-back.png"
+import Divider from "./assets/images/counter-divider.png";
 
 // const rows: string[] = ["A","B","C","D"];
 // const cols: string[] = ["1","2","3","4"];
@@ -145,8 +146,11 @@ function App() {
         </div>
       </div>
       <div id="counter">
-        <div>
-          {`${playerCardCount("p2")}/${playerCardCount("p1")}`}
+        <div className='counter-flex'>
+          {/* {`${playerCardCount("p2")}/${playerCardCount("p1")}`} */}
+          <div className='p2-count'>{`${playerCardCount("p2")}`}</div>
+          <img className='divider' src={Divider} />
+          <div className='p1-count'>{`${playerCardCount("p1")}`}</div>
         </div>
       </div>
       </div>

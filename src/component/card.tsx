@@ -5,9 +5,6 @@ import Arrow from '../assets/images/corner-arrow.png'
 import PlayerBg from '../assets/images/card-frames/player-bg.png'
 import PlayerFrame from '../assets/images/card-frames/player-frame.png'
 import EnemyBg from '../assets/images/card-frames/enemy-bg.png'
-// import EnemyFrame from '../assets/images/card-frames/enemy-frame.png'
-// import Block1 from '../assets/images/card-frames/block-tile-1.png'
-import Block2 from '../assets/images/card-frames/block-tile-2.png'
 
 interface CardTemplateProps {
     card: Card,
@@ -30,7 +27,7 @@ export const CardTemplate: React.FC<CardTemplateProps> = ({ card, flipped=false,
     const isWall = player === "block";
 
     const playerOrGrid = () => {
-        if (isWall) return Block2;
+        if (isWall) return cardImg;
 
         if (isP1) return PlayerBg;
 

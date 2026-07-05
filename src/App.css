@@ -5,7 +5,7 @@ body {
 }
 
 #A1  {
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 10px 0 0 0;
 }
 #playmat {
@@ -42,9 +42,48 @@ body {
 }
 
 #counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Mayonice';
+  -webkit-text-stroke: 2px black;
+  font-size: 110pt;
   width: 100%;
-  height: 35%;
-  background-color: rgba(0, 0, 0, 0.1);
+  height: 30%;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.counter-flex {
+  position: relative;
+  max-width: 11rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  max-width: 11rem;
+}
+
+.p2-count {
+  height: 5rem;
+  background: -webkit-linear-gradient(rgba(231, 107, 111), rgba(242, 172, 125));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.p1-count {
+  height: 5rem;
+  background: -webkit-linear-gradient(rgba(107, 167, 231), rgba(132, 227, 186));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .grid-container {
