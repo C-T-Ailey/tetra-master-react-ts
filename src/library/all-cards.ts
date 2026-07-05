@@ -99,6 +99,8 @@ import Gargant from "../assets/images/card-sprites/tile096.png"
 import Namingway from "../assets/images/card-sprites/tile097.png"
 import Boco from "../assets/images/card-sprites/tile098.png"
 import Airship from "../assets/images/card-sprites/tile099.png"
+import BlockOne from '../assets/images/card-frames/block-tile-1.png'
+import BlockTwo from '../assets/images/card-frames/block-tile-2.png'
 
 import Critter from "../assets/images/select-icons/critter.png"
 import Special from "../assets/images/select-icons/hmm.png"
@@ -2405,10 +2407,10 @@ export const playerCollection: Card[] = [
 {
     id: 4,
     cardName: "Flan",
-    power: 0x0,
-    atkType: "M",
-    pDef: 0x0,
-    mDef: 0x1,
+    power: 0xF,
+    atkType: "A",
+    pDef: 0xF,
+    mDef: 0xF,
     cardImg: Flan,
     atkDirections: {
     NW: false, 
@@ -2466,6 +2468,266 @@ export const playerCollection: Card[] = [
     icon: Monster
 },
 ];
+
+export const debugEnemyHand: Card[] = [
+  {
+    id: 1,
+    cardName: "Cactuar",
+    power: 0x2,
+    atkType: "P",
+    pDef: 0xB,
+    mDef: 0x1,
+    cardImg: Cactuar,
+    atkDirections: {
+      NW: false, 
+      N: false, 
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: true, 
+      SW: false, 
+      W: false
+    },
+    player: "p2",
+    icon: Special
+  },
+  {
+    id: 2,
+    cardName: "Tonberry",
+    power: 0x2,
+    atkType: "X",
+    pDef: 0x3,
+    mDef: 0xA,
+    cardImg: Tonberry,
+    atkDirections: {
+      NW: true, 
+      N: false, 
+      NE: true, 
+      E: false, 
+      SE: false, 
+      S: true, 
+      SW: false, 
+      W: true
+    },
+    player: "p2",
+    icon: Special
+  },
+  {
+    id: 3,
+    cardName: "Hecteyes",
+    power: 0x4,
+    atkType: "A",
+    pDef: 0x0,
+    mDef: 0x4,
+    cardImg: Hecteyes,
+    atkDirections: {
+      NW: false, 
+      N: true,
+      NE: false, 
+      E: false, 
+      SE: true, 
+      S: false, 
+      SW: true, 
+      W: false
+    },
+    player: "p2",
+    icon: Special
+  },
+  {
+    id: 4,
+    cardName: "Goblin",
+    power: 0x0,
+    atkType: "P",
+    pDef: 0x0,
+    mDef: 0x0,
+    cardImg: Goblin,
+    atkDirections: {
+      NW: true, 
+      N: true,
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: true, 
+      SW: true, 
+      W: true
+    },
+    player: "p2",
+    icon: Special
+  },
+  {
+    id: 5,
+    cardName: "Chocobo",
+    power: 0x1,
+    atkType: "P",
+    pDef: 0x3,
+    mDef: 0x1,
+    cardImg: Chocobo,
+    atkDirections: {
+      NW: true, 
+      N: false,
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: false, 
+      SW: true, 
+      W: false
+    },
+    player: "p2",
+    icon: Special
+  },
+]
+
+export const WallOne: Card = {
+  id: 0,
+  cardName: "Wall",
+  power: 0,
+  atkType: "X",
+  pDef: 0,
+  mDef: 0,
+  cardImg: BlockOne,
+  atkDirections: {
+    NW: false, 
+    N: false, 
+    NE: false, 
+    E: false, 
+    SE: false, 
+    S: false, 
+    SW: false, 
+    W: false
+  },
+  player: "block",
+  icon: Special
+}
+
+export const WallTwo: Card = {
+  id: 0,
+  cardName: "Wall",
+  power: 0,
+  atkType: "X",
+  pDef: 0,
+  mDef: 0,
+  cardImg: BlockTwo,
+  atkDirections: {
+    NW: false, 
+    N: false, 
+    NE: false, 
+    E: false, 
+    SE: false, 
+    S: false, 
+    SW: false, 
+    W: false
+  },
+  player: "block",
+  icon: Special
+}
+
+export const handWithCardObjects: Card[] = [
+  {
+    id: 1,
+    cardName: "Cactuar",
+    power: 0x2,
+    atkType: "P",
+    pDef: 0xB,
+    mDef: 0x1,
+    cardImg: Cactuar,
+    atkDirections: {
+      NW: false, 
+      N: false, 
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: true, 
+      SW: false, 
+      W: false
+    },
+    player: "p1",
+    icon: Special
+  },
+  {
+    id: 2,
+    cardName: "Tonberry",
+    power: 0x2,
+    atkType: "X",
+    pDef: 0x3,
+    mDef: 0xA,
+    cardImg: Tonberry,
+    atkDirections: {
+      NW: true, 
+      N: false, 
+      NE: true, 
+      E: false, 
+      SE: false, 
+      S: true, 
+      SW: false, 
+      W: true
+    },
+    player: "p1",
+    icon: Special
+  },
+  {
+    id: 3,
+    cardName: "Hecteyes",
+    power: 0x4,
+    atkType: "A",
+    pDef: 0x0,
+    mDef: 0x4,
+    cardImg: Hecteyes,
+    atkDirections: {
+      NW: false, 
+      N: true,
+      NE: false, 
+      E: false, 
+      SE: true, 
+      S: false, 
+      SW: true, 
+      W: false
+    },
+    player: "p1",
+    icon: Special
+  },
+  {
+    id: 4,
+    cardName: "Goblin",
+    power: 0x0,
+    atkType: "P",
+    pDef: 0x0,
+    mDef: 0x0,
+    cardImg: Goblin,
+    atkDirections: {
+      NW: true, 
+      N: true,
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: true, 
+      SW: true, 
+      W: true
+    },
+    player: "p1",
+    icon: Special
+  },
+  {
+    id: 5,
+    cardName: "Chocobo",
+    power: 0x1,
+    atkType: "P",
+    pDef: 0x3,
+    mDef: 0x1,
+    cardImg: Chocobo,
+    atkDirections: {
+      NW: true, 
+      N: false,
+      NE: true, 
+      E: true, 
+      SE: true, 
+      S: false, 
+      SW: true, 
+      W: false
+    },
+    player: "p1",
+    icon: Special
+  },
+]
 
 export const emptyCard: Card = {
   id: 0,

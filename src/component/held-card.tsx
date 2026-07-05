@@ -17,10 +17,8 @@ export const HeldCard: React.FC<HeldCardProps> = ({ index, card, click }) => {
 
     const { cardName, cardImg, power, atkType, pDef, mDef, atkDirections } = card
 
-    const staggeredHand = {zIndex: `${index * 10}`, top: index === 0 ? "0" : `-${index * 6}rem`, left: index === 0 ? "0" : `-${index * 1}rem`}
+    // const staggeredHand = {zIndex: `${index * 10}`, top: index === 0 ? "0" : `-${index * 6}rem`, left: index === 0 ? "0" : `-${index * 1}rem`}
     const alignedHand = {zIndex: `${index * 10}`, top: index === 0 ? "0" : `-${index * 6}rem`}
-
-    console.log(staggeredHand);
 
     return (
         <div className="held-card-container" style={alignedHand}>

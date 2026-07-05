@@ -31,6 +31,15 @@
     border-radius: 20px;
 }
 
+.card-count {
+    position: absolute;
+    z-index: 40;
+    bottom: 0;
+    right: 0.5rem;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
 .empty {
     cursor:auto;
     max-width: 5rem;
@@ -40,6 +49,8 @@
 }
 
 .select-cell {
+    position: relative;
+    display: flex;
     cursor: pointer;
     max-width: 5rem;
     aspect-ratio: 1/1;
@@ -55,6 +66,10 @@
 .icons {
     height: 4rem;
     width: 4rem;
+}
+
+.has-multiple {
+    filter: contrast(2) brightness(0.6);
 }
 
 .select-preview {
@@ -108,6 +123,14 @@
 
 .outcome-count {
     color: white;
+}
+
+.id-display {
+    width: 9rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 35pt;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.8);
 }
 
 .preview-container {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './card.css';
 import type { Card } from "../types/types";
 import Arrow from '../assets/images/corner-arrow.png'
 import PlayerBg from '../assets/images/card-frames/player-bg.png'
