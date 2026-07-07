@@ -163,10 +163,6 @@ function App() {
       <CardTemplate card={cellMap[cellKey]}/>
     ;
   }
-    
-  const coinFlip = () => {
-    return Math.random() < 0.5;
-  }
 
   if (cardSelect) {
     return (
