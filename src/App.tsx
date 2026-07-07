@@ -6,6 +6,7 @@ import { CardTemplate } from './component/card';
 import { WallOne, WallTwo, debugEnemyHand, handWithCardObjects } from './library/all-cards';
 import CardBack from "./assets/images/card-frames/card-back.png"
 import Divider from "./assets/images/counter-divider.png";
+import { getRandomInt, coinFlip } from './helpers/helpers';
 
 // const rows: string[] = ["A","B","C","D"];
 // const cols: string[] = ["1","2","3","4"];
@@ -51,31 +52,79 @@ function App() {
   };
   
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
+  // const [oppSelectedCard, setOppSelectedCard] = useState<Card | null>(null);
   
-  const [cellMap, setCellMap] = useState<CellMap>(mapObj)
-  const [playerHand, setPlayerHand] = useState<Card[]>(handWithCardObjects)
-  const [playerTurn, setPlayerTurn] = useState<string>()
-  
+  const [cellMap, setCellMap] = useState<CellMap>(mapObj);
+  const [playerHand, setPlayerHand] = useState<Card[]>(handWithCardObjects);
+  const [oppHand, setOppHand] = useState<Card[]>(debugEnemyHand);
+  const [playerTurn, setPlayerTurn] = useState<"p1" | "p2" | null>(null);
   const [cardSelect, setCardSelect] = useState(true);
-  
-  // const whoseTurnIsItAnyway = () => {
-
-  // }
+  const [gameBegin, setGameBegin] = useState(false);
+  const [hideCoin, setHideCoin] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(()=>{
-    coinFlip() ?
-      setPlayerTurn("p1")
-    :
-      setPlayerTurn("p2")
-  },[])
+    if (!cardSelect) {
+      const coinToss = coinFlip();
+      if (coinToss) {
+        console.log("P1 goes first")
+        setPlayerTurn("p1")
+      } else {
+        console.log("P2 goes first")
+        setPlayerTurn("p2")
+      };
+
+      setGameBegin(true);
+    }
+  },[cardSelect]);
+
+  useEffect(()=>{
+    if (gameBegin) {
+      setTimeout(()=>{
+        console.log("Heyoooo");
+        setHideCoin(true)
+      }, 3000)
+    }
+  },[gameBegin]);
+  
+  useEffect(()=>{
+    if (playerHand.length === 0 && oppHand.length === 0) return setGameOver(true);
+
+    if (gameBegin) {
+      if (playerTurn === "p1") {
+        console.log("Now it is your turn.")
+      } else {
+        setTimeout(()=>{
+          console.log("It is player 2's turn and they are doing something utterly devastating");
+          p2Turn();
+          setPlayerTurn("p1");
+        }, 2000)
+      }
+    }
+  },[playerTurn]);
 
   useEffect(()=> {
     console.log(selectedCard);
   },[selectedCard])
   
-  
   const selectCard = (card: Card) => {
     setSelectedCard(card);
+  }
+
+  const p2Turn = () => {
+    const cloneMap = structuredClone(cellMap);
+    const cloneOppHand = structuredClone(oppHand);
+    const opponentSelectedCard = oppHand[getRandomInt(0, oppHand.length-1)];
+    // setOppSelectedCard(opponentSelectedCard);
+    const emptyCells = Object.entries(cellMap).filter((cell) => cell[1] === false);
+    const randomCell = emptyCells[getRandomInt(0, emptyCells.length-1)];
+    console.log("Opponent is placing their card in cell", randomCell);
+    const cellKey = randomCell[0] as keyof CellMap;
+    cloneMap[cellKey] = opponentSelectedCard;
+    const cardIndex = cloneOppHand.findIndex(card => card.id === opponentSelectedCard.id);
+    cloneOppHand.splice(cardIndex, 1);
+    setOppHand(cloneOppHand);
+    setCellMap(cloneMap);
   }
 
   const handlePlacement = (cell: string) => {
@@ -95,6 +144,7 @@ function App() {
       setPlayerHand(cloneHand);
       setCellMap(cloneMap);
       setSelectedCard(null);
+      setPlayerTurn("p2");
       console.log(cloneMap);
     } else {
       // if no selectedCard,
@@ -113,7 +163,7 @@ function App() {
       <CardTemplate card={cellMap[cellKey]}/>
     ;
   }
-
+    
   const coinFlip = () => {
     return Math.random() < 0.5;
   }
@@ -124,16 +174,21 @@ function App() {
     )
   }
 
-  const playerCardCount = (player: string) => {
-    const count = Object.values(cellMap).filter((card: Card) => card.player === player).length;
-    console.log(count);
-    return count;
-  }
-
-  return (
+    const playerCardCount = (player: string) => {
+      const count = Object.values(cellMap).filter((card: Card) => card.player === player).length;
+      console.log(count);
+      return count;
+    }
+    
+    return (
       <div id="playmat">
+      <div style={{display: gameOver ? "flex" : "none"}} className='game-over-container'>
+        <div className='game-over'>
+          game bloody over innit
+        </div>
+      </div>
       <div className='coin-toss'>
-        <div id="coin">
+        <div id="coin" className={hideCoin ? "none" : ""}>
           <div id="coin-result" className={playerTurn === "p1" ? "heads-result" : "tails-results"}></div>
         </div>
       </div>
@@ -166,7 +221,7 @@ function App() {
       </div>
         <div id="cards-p1">
           { playerHand.map((card: Card, index) => (
-            <div onClick={() => selectCard(card)}>
+            <div onClick={playerTurn === "p1" ? () => selectCard(card) : ()=>console.log("Not your turn, guy")}>
               <CardTemplate index={index} card={card}/>
             </div>
           )) }

@@ -4,6 +4,7 @@ import type { Card } from "../types/types";
 import Arrow from '../assets/images/corner-arrow.png'
 import PlayerBg from '../assets/images/card-frames/player-bg.png'
 import PlayerFrame from '../assets/images/card-frames/player-frame.png'
+import EnemyFrame from '../assets/images/card-frames/enemy-frame.png'
 import EnemyBg from '../assets/images/card-frames/enemy-bg.png'
 
 interface CardTemplateProps {
@@ -45,28 +46,28 @@ export const CardTemplate: React.FC<CardTemplateProps> = ({ card, flipped=false,
         
         <img className='card-bg' src={playerOrGrid()} />
     
-        <img style={{display: !isWall ? "" : "none"}} className='card-image' src={cardImg}  />
+        <img style={{display: !isWall ? "" : "none"}} className='card-image' src={cardImg} />
     
-        <img style={{display: !isWall ? "" : "none"}} className='card-frame' src={PlayerFrame} />
+        <img style={{display: !isWall ? "" : "none"}} className='card-frame' src={isP1 ? PlayerFrame : EnemyFrame} />
         
         <div className='card-arrows'>
         <div className='arrow-row row-top'>
             {[atkDirections.NW, atkDirections.N, atkDirections.NE].map((arrow, index) => 
-            <div className='arrow-container top'>
+            <div key={index} className='arrow-container top'>
                 <img style={{display: arrow ? "" : "none"}} className={`arrow arrow-${index}`} src={Arrow} alt="arrow"/>
             </div>
             )}
         </div>
         <div className='arrow-row row-middle'>
             {[atkDirections.W, atkDirections.E].map((arrow, index) => 
-            <div className='arrow-container middle'>
+            <div key={index} className='arrow-container middle'>
                 <img style={{display: arrow ? "" : "none"}} className={`arrow arrow-${index}`} src={Arrow} alt="arrow"/>
             </div>
             )}
         </div>
         <div className='arrow-row row-bottom'>
             {[atkDirections.SW, atkDirections.S, atkDirections.SE].map((arrow, index) => 
-                <div className='arrow-container bottom'>
+                <div key={index} className='arrow-container bottom'>
                 <img style={{display: arrow ? "" : "none"}} className={`arrow arrow-${index}`} src={Arrow} alt="arrow"/>
                 </div>
             )}

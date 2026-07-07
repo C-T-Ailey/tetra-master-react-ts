@@ -295,3 +295,7 @@
 .tails-results {
     animation: resultTails 5s ease-in;
   }
+
+.none {
+    display: none;
+}

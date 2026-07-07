@@ -6,6 +6,7 @@ import './card-selection.css'
 import type { Card } from "../../types/types";
 import { HeldCard } from "../held-card";
 import { CardTemplate } from "../card";
+import { range } from "../../helpers/helpers";
 
 interface SelectionProps {
     setPlayerHand: Dispatch<SetStateAction<Card[]>>;
@@ -13,8 +14,6 @@ interface SelectionProps {
 }
 
 export const CardSelection: React.FC<SelectionProps> = ({setPlayerHand, start}) => {
-
-    const range = (start: number, stop: number, step: number) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
     
     // Function for mapping a provided array of cards (collection) to the emptyCollection array of arrays
     const arrangeCollection = (collection: Card[]) => {
