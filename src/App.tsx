@@ -195,7 +195,7 @@ function App() {
       <div id="cards-counter">
       <div id="cards-p2">
         <div className='p2-cards-container'>
-          { debugEnemyHand.map((card: Card, index) => (
+          { oppHand.map((card: Card, index) => (
             <div id={`p2-${card.id}`} className="card-back" style={{backgroundImage: `url(${CardBack})`, zIndex: `${index * 10}`, top: index === 0 ? "0" : `${index * 3}rem`}} onClick={() => playerCardCount("p1")}></div>
             ))}
         </div>
