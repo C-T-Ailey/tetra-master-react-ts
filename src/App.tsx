@@ -297,14 +297,14 @@ function App() {
     }
 
     const gameEndMessage = () => {
-      if (playerCardCount("p1") > playerCardCount("p2")) {
-        return "blimey u bloody won innit"
-      } else if (playerCardCount("p1") < playerCardCount("p2")) {
-        return "u bloody lost innit"
-      } else if (playerCardCount("p1") === 10) {
+      if (playerCardCount("p1") === 10) {
         return "bloody hell perfect game m8"
       } else if (playerCardCount("p2") === 10) {
         return "bloody hell m8 u got rinsed"
+      } else if (playerCardCount("p1") > playerCardCount("p2")) {
+        return "blimey u bloody won innit"
+      } else if (playerCardCount("p1") < playerCardCount("p2")) {
+        return "u bloody lost innit"
       } else {
         return "bloody tie innit"
       }
