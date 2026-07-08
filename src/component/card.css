@@ -8,6 +8,7 @@
     aspect-ratio: 1/1.24;
     /* border: 1px solid black; */
     /* width: 191px; */
+    height: 100%;
     width: 9rem;
     /* background-color: rgb(37, 29, 83); */
     display: flex;

@@ -142,14 +142,14 @@ export const allCards: Card[] = [
         mDef: 0x0,
         cardImg: Goblin,
         atkDirections: {
-            NW: true, 
-            N: true,
-            NE: true, 
-            E: true, 
-            SE: true, 
-            S: true, 
-            SW: true, 
-            W: true
+            NW: false, 
+            N: false,
+            NE: false, 
+            E: false, 
+            SE: false, 
+            S: false, 
+            SW: false, 
+            W: false
         },
         player: "p1",
         icon: Monster
@@ -627,10 +627,10 @@ export const allCards: Card[] = [
         atkDirections: {
           NW: false, 
           N: false, 
-          NE: true, 
-          E: true, 
-          SE: true, 
-          S: true, 
+          NE: false, 
+          E: false, 
+          SE: false, 
+          S: false, 
           SW: false, 
           W: false
         },
@@ -920,12 +920,12 @@ export const allCards: Card[] = [
         cardImg: Hecteyes,
         atkDirections: {
             NW: false, 
-            N: true,
+            N: false,
             NE: false, 
             E: false, 
-            SE: true, 
+            SE: false, 
             S: false, 
-            SW: true, 
+            SW: false, 
             W: false
         },
         player: "p1",
@@ -1087,14 +1087,14 @@ export const allCards: Card[] = [
         mDef: 0xA,
         cardImg: Tonberry,
         atkDirections: {
-          NW: true, 
+          NW: false, 
           N: false, 
-          NE: true, 
+          NE: false, 
           E: false, 
           SE: false, 
-          S: true, 
+          S: false, 
           SW: false, 
-          W: true
+          W: false
         },
         player: "p1",
         icon: Monster
@@ -1990,13 +1990,13 @@ export const allCards: Card[] = [
         mDef: 0x0,
         cardImg: Chocobo,
         atkDirections: {
-            NW: true, 
+            NW: false, 
             N: false,
-            NE: true, 
-            E: true, 
-            SE: true, 
+            NE: false, 
+            E: false, 
+            SE: false, 
             S: false, 
-            SW: true, 
+            SW: false, 
             W: false
         },
         player: "p1",

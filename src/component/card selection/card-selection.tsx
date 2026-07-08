@@ -6,7 +6,7 @@ import './card-selection.css'
 import type { Card } from "../../types/types";
 import { HeldCard } from "../held-card";
 import { CardTemplate } from "../card";
-import { range } from "../../helpers/helpers";
+import { getRandomInt, range } from "../../helpers/helpers";
 
 interface SelectionProps {
     setPlayerHand: Dispatch<SetStateAction<Card[]>>;
@@ -71,7 +71,32 @@ export const CardSelection: React.FC<SelectionProps> = ({setPlayerHand, start}) 
     },[hand])
 
     const confirmStart = () => {
-        setPlayerHand(hand)
+
+        const handCopy = structuredClone(hand);
+
+        handCopy.forEach(card => {
+            let arrowCount = getRandomInt(0, 8);
+
+            if (arrowCount === 0) arrowCount = getRandomInt(0,8)
+
+            while (arrowCount > 0) {
+                // attack directions object, compass directions and true/false
+                const { atkDirections } = card;
+                // the compass direction keys of atkdirections
+                const arrowKeys = Object.keys(atkDirections);
+                console.log(arrowKeys);
+                // a random key of atkdirections
+                const randomKey = arrowKeys[getRandomInt(0, arrowKeys.length)];
+                
+                const atkKey = randomKey as keyof typeof atkDirections ;
+                atkDirections[atkKey] = true; 
+                arrowCount -= 1;
+            }
+        })
+
+        console.log("hand:", handCopy)
+
+        setPlayerHand(handCopy)
             
         start();
     }
