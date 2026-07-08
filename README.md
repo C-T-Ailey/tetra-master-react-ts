@@ -31,6 +31,7 @@ A browser-based adaptation of the Final Fantasy IX CCG minigame "Tetra Master".
 - Placement, score tracking, instant claiming and Clashes work as intended, albeit without stylistic flair.
 
 ## To Do
+- Tutorial, because people who have been playing this game for decades don't understand how it works. New players don't stand a chance without it.
 - Chaining after a Clash.
 - Results screen and card gain/loss for winning and losing players.
 - Collection storage, so that cards won or lost are reflected in the player's collection.
