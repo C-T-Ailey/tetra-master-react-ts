@@ -295,12 +295,26 @@ function App() {
       const count = Object.values(cellMap).filter((card: Card) => card.player === player).length;
       return count;
     }
-    
+
+    const gameEndMessage = () => {
+      if (playerCardCount("p1") > playerCardCount("p2")) {
+        return "blimey u bloody won innit"
+      } else if (playerCardCount("p1") < playerCardCount("p2")) {
+        return "u bloody lost innit"
+      } else if (playerCardCount("p1") === 10) {
+        return "bloody hell perfect game m8"
+      } else if (playerCardCount("p2") === 10) {
+        return "bloody hell m8 u got rinsed"
+      } else {
+        return "bloody tie innit"
+      }
+    }
+     
     return (
       <div id="playmat">
       <div style={{display: gameOver ? "flex" : "none"}} className='game-over-container'>
         <div className='game-over'>
-          game bloody over innit
+          {gameEndMessage()}
         </div>
       </div>
       <div className='coin-toss'>
